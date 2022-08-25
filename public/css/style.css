@@ -1,11 +1,16 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
-.navbar-brand, .nav-link {
+.navbar .navbar-brand {
     color: rgb(255, 255, 255) !important;
     text-transform: uppercase;
     font-weight: 500;
 }
-.nav-link:hover {
+.navbar .nav-link {
+    color: rgb(255, 255, 255) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.navbar .nav-link:hover {
     color: rgb(226, 226, 226) !important;
 }
 .jumbotron {

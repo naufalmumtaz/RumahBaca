@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('judul')
+  Beranda
+@endsection
+
 @section('content')
     <div class="jumbotron">
       <div class="container text-center">

@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($kategori as $key=>$value)
+                    @foreach ($kategori as $key=>$value)
                         <tr>
                             <td>{{$key + 1}}</th>
                                 <td>{{$value->judul}}</td>
@@ -35,9 +35,7 @@
                                     </form>
                                 </td>
                         </tr>
-                    @empty
-                        <h4 class="text-center py-4">Kategori belum dibuat</h4>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>

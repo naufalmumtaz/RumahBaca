@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('judul') - Rumah Baca</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -85,17 +85,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Beranda</a>
+                  <a class="nav-link active" href="/">Beranda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Koleksi</a>
+                  <a class="nav-link" href="{{ route('user.koleksi') }}">Koleksi</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Kegiatan</a>
+                  <a class="nav-link" href="{{ route('user.kegiatan') }}">Kegiatan</a>
                 </li>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Komunitas</a>
+                  <a class="nav-link" href="">Artikel</a>
                 </li>
                 </li>
               </ul>

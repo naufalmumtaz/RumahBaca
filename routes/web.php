@@ -35,3 +35,41 @@ Auth::routes(['register' => false]);
 Route::get('/', function() {
     return view('home');
 })->name('home');
+
+Route::get('/user/koleksi', function() {
+    $kategori = Kategori::all();
+
+    if(request('search')) {
+        $koleksi = Koleksi::where('judul', 'LIKE', '%' . request('search') . '%')->orWhere('deskripsi', 'LIKE', '%' . request('search') . '%')->orWhere('kategori_id', 'LIKE', '%' . request('search') . '%')->get();
+    } else {
+        $koleksi = Koleksi::latest()->get();
+    }
+
+    return view('koleksi', compact('kategori', 'koleksi'));
+})->name('user.koleksi');
+
+Route::get('/user/koleksi/{kategori}', function(Kategori $kategori) {
+    $koleksi = Koleksi::where('kategori_id', $kategori->id)->get();
+    $kategori = Kategori::all();
+
+    return view('koleksi', compact('koleksi', 'kategori'));
+})->name('user.koleksi.kategori');
+
+Route::get('/user/kegiatan', function() {
+    if(request('search')) {
+        $kegiatan = Kegiatan::where('judul', 'LIKE', '%' . request('search') . '%')->orWhere('isi', 'LIKE', '%' . request('search') . '%')->get();
+    } else {
+        $kegiatan = Kegiatan::latest()->get();
+    }
+
+    return view('kegiatan', compact('kegiatan'));
+})->name('user.kegiatan');
+
+Route::get('/user/kegiatan/{id}', function($id) {
+    $kegiatan = Kegiatan::find($id);
+
+    return view('kegiatandetail', compact('kegiatan'));
+})->name('user.kegiatan.detail');
+
+
+
